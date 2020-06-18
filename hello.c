@@ -16,7 +16,7 @@ void printList(node_t *head) // accept the head as where to start with
     node_t *temp = head;
     while (temp!=NULL)
     {
-        printf("-%d\n",temp->value);
+        printf("-%d located at the address %p\n",temp->value, &temp);
         temp = temp->next;
 
     }
