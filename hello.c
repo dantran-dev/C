@@ -98,8 +98,6 @@ node_t *addToEnd(int value)
     
     curr->next = ptr;
     curr = ptr;
-
-
     return ptr;
     
 }
