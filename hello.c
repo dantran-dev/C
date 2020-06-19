@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <stdbool.h>
 
 struct node
 {
@@ -14,28 +16,96 @@ node_t *curr;
 
 node_t *createList(int value)
 {
+
+    node_t *ptr = (struct node*)malloc(sizeof(node_t));
+    if (ptr == NULL)
+    {
+        printf("Node creation failed \n");
+        return NULL;
+    }
+
+    ptr->value = value;
+    ptr->next = NULL;
+    head = curr = ptr;
+    return ptr;
+
+}
+
+node_t *addToList(int value, bool add_to_end)
+{
+    if (head == NULL)
+    {
+        return (createList(value));
+    }
+
+    if (add_to_end)
+    {
+        printf("\n Adding node to the end of the list with value %d\n",value);
+    }
+    else
+    {
+        printf("\n Adding to the front of the list with value %d", value);
+    }
+
+    node_t *ptr = (struct node*)malloc(sizeof(node_t));
+    
+    if (ptr == NULL)
+    {
+        printf("Node creation failed!\n");
+    }
+
+    ptr->value = value;
+    ptr->next = NULL;
+
+    if (add_to_end)
+    {
+        curr->next = ptr;
+        curr = ptr;
+    }
+    else
+    {
+        ptr->next = head;
+        head = ptr;
+    }
+    
+    return ptr;
+    
+}
+
+void printList(void)
+{
+    node_t *ptr = head;
+    printf("\n -- The List -- \n");
+
+    while (ptr != NULL)
+    {
+        printf("\n %d \n", ptr->value);
+        ptr = ptr->next;
+    }
+
+    printf("\nList End\n");
+
+    return;
     
 }
 
 
 int main()
 {   
-    /*
-    note_t n1,n2;
 
-    n1.value = 8;
-    n1.next = &n1;
+    int i =0, ret = 0;
 
+    node_t *ptr = NULL;
 
-    n2.value = 93;
-    n2.next = NULL;
+    printList();
 
-    printf("%d\n", n1.value);
+    for ( i = 5; i < 10; i++)
+    {
+        addToList(i, true);
+    }
 
-    printf("%d\n",n2.value);
-    */
-
-
+    printList();
+    
     return 0;
 
     
