@@ -30,6 +30,7 @@ node_t *createList(int value)
     return ptr;
 
 }
+/*
 
 node_t *addToList(int value, bool add_to_end)
 {
@@ -72,6 +73,50 @@ node_t *addToList(int value, bool add_to_end)
     
 }
 
+*/
+
+node_t *addToEnd(int value)
+{
+    node_t *ptr = (struct node*)malloc(sizeof(node_t));
+
+    if (head == NULL)
+    {
+        return (createList(value));
+    }
+
+    if (ptr ==NULL)
+    {
+        printf("Node creation failed");
+    }
+
+    ptr->value = value;
+    ptr->next = NULL;
+    /*
+    * Update the address of the previous node equal to new node
+    * Set the new node is the current node for the next move
+    */
+    
+    curr->next = ptr;
+    curr = ptr;
+
+
+    return ptr;
+    
+}
+
+
+node_t *addToFront(int value)
+{
+
+    node_t *ptr = (struct node*)malloc(sizeof(node_t));
+    ptr->next =head; // link the new node in front to the head
+    head = ptr;      // set the head is the new node
+
+    return ptr;
+
+
+}
+
 void printList(void)
 {
     node_t *ptr = head;
@@ -99,9 +144,9 @@ int main()
 
     printList();
 
-    for ( i = 5; i < 10; i++)
+    for ( i = 5; i < 20; i++)
     {
-        addToList(i, true);
+        addToEnd(i);
     }
 
     printList();
