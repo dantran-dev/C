@@ -122,7 +122,7 @@ void printList(void)
 
     while (ptr != NULL)
     {
-        printf("\n %d \n", ptr->value);
+        printf("-%d", ptr->value);
         ptr = ptr->next;
     }
 
@@ -139,8 +139,6 @@ int main()
     int i =0, ret = 0;
 
     node_t *ptr = NULL;
-
-    printList();
 
     for ( i = 5; i < 20; i++)
     {
