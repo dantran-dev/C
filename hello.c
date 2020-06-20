@@ -30,50 +30,7 @@ node_t *createList(int value)
     return ptr;
 
 }
-/*
 
-node_t *addToList(int value, bool add_to_end)
-{
-    if (head == NULL)
-    {
-        return (createList(value));
-    }
-
-    if (add_to_end)
-    {
-        printf("\n Adding node to the end of the list with value %d\n",value);
-    }
-    else
-    {
-        printf("\n Adding to the front of the list with value %d", value);
-    }
-
-    node_t *ptr = (struct node*)malloc(sizeof(node_t));
-    
-    if (ptr == NULL)
-    {
-        printf("Node creation failed!\n");
-    }
-
-    ptr->value = value;
-    ptr->next = NULL;
-
-    if (add_to_end)
-    {
-        curr->next = ptr;
-        curr = ptr;
-    }
-    else
-    {
-        ptr->next = head;
-        head = ptr;
-    }
-    
-    return ptr;
-    
-}
-
-*/
 
 node_t *addToEnd(int value)
 {
