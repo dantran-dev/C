@@ -75,15 +75,15 @@ node_t *addToFront(int value)
 void printList(void)
 {
     node_t *ptr = head;
-    printf("\n -- The List -- \n");
+   
 
     while (ptr != NULL)
     {
-        printf("-%d", ptr->value);
+        printf("-%d-", ptr->value);
         ptr = ptr->next;
     }
 
-    printf("\nList End\n");
+    printf("\n");
 
     return;
     
@@ -97,7 +97,7 @@ int main()
 
     node_t *ptr = NULL;
 
-    for ( i = 5; i < 20; i++)
+    for ( i = 0; i <= 20; i++)
     {
         addToEnd(i);
     }
