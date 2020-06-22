@@ -27,27 +27,27 @@ void zip(list l1, list l2)
 
     while ((c1 != NULL) && (c2 !=NULL))
     {
-        if (r->prev ==NULL)
+        if (r->prev ==NULL)     // if r == NULL;
         {
-            r = c1;
+            r = c1;             // r->next = c1;
             l2->first = r;
         }
         else
         {
-            r->next = c1;
+            r->next = c1;       // r->next = c2;
             r->next->prev = r;
         }
         
         c1 = c1->next;
-        r->next = c2;
+        r->next = c2;         //r->next = c1;
 
         r->next->prev = r;
         c2 = c2->next;
         r = r->next;
         
-        while (c2!=NULL)     //??
+        while (c2!=NULL)     // c1!=NULL
         {
-            r->next = c2;
+            r->next = c2;     //r->next = c1;
             r->prev->next = r;
             c2 = c2->next;
             r=r->next;
@@ -60,7 +60,7 @@ void zip(list l1, list l2)
             c2 = c2->next;
             r=r->next;
         }
-        
+          
     }
     
 }

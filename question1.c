@@ -21,12 +21,14 @@ struct list_int
 void f1(list l)
 {
     node c;
-    c= l->first;
+    
+    c = l->first;       // address of node c
+     
     while (c->next->next !=NULL)
     {
         c = c->next;
     }
-
+    
     c->next = NULL;
     
 }
@@ -34,6 +36,6 @@ void f1(list l)
 
 int main()
 {
-    printf("");
+
 }
 

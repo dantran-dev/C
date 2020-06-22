@@ -1,0 +1,21 @@
+//interface
+
+interface Robot
+{
+    public boolean speak();
+    public int changeVolume();
+
+}
+
+class Siri implements Robot
+{
+    public boolean speak()
+    {
+
+    }
+
+    public int changeVolume()
+    {
+
+    }
+}

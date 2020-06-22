@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <node.h>
 
+typedef enum {plain, swirled,cats_eye}content;
+typedef enum {glass,wooden,plastic} material;
 
 struct marble_int
 {
@@ -19,8 +22,9 @@ typedef struct
     collection marbles;
 }member;
 
-typedef member members;
-typedef marble collection;
+//Question 5e1
+typedef node members;     
+typedef node collection;
 
 members club;
 
@@ -39,5 +43,20 @@ char *to_string(marble m);
 int main()
 {
 
+
+}
+
+//5e2
+
+void init_collection(collection *cp)
+{
+    cp = (struct collection*)malloc(sizeof(collection));
+    
+
+}
+
+void add_marble(collection c, marble m)
+{
+    
 
 }
