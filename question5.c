@@ -50,7 +50,7 @@ int main()
 
 void init_collection(collection *cp)
 {
-    cp = (struct collection*)malloc(sizeof(collection));
+    cp = (collection*)malloc(sizeof(collection));
     
 }
 
@@ -59,15 +59,17 @@ void init_collection(collection *cp)
 void add_marble(collection c, marble m)
 {
    
+    club = c->first;
+
     //create a node with the marble in it
-    collection marble_node;
-   
+    collection *marble_node;
+     
   
     //create marble node with marble inside it
     init_node(&marble_node, m);
 
     //link the new marble node to the next node
-    marble_node = club;
+    marble_node->next = club;
 
     //update the head
     club = marble_node;
@@ -81,6 +83,11 @@ void display_marbles(collection c, content k)
     c = club;
 
     //loop through collection c then find the node that has content k
+    if (c==NULL)
+    {
+        printf("The list is empty!\n");
+    }
+    
 
     while ((c!=NULL) && (strcmp(get_look(c)= k)))
     {
@@ -115,17 +122,18 @@ void remove(collection c)
 
  collection *temp, *prev;
 
- temp = club;
+ temp = c;
 
  int old = 0;
+//if we found the old marble at the head of the node
 
- if (temp!=NULL && get_age(temp)==0)
- {
-    
-    club = temp->next;    //change head
-    free(temp);           // delete old head
-    return;
- }
+if (temp!=NULL && get_look(temp)==0)
+{       
+    c = temp->next;  //change head
+
+    free(temp);      //free old head
+}
+
 
  //search for the node marble to be deleted
  // keep track of the previous node as we need to update its next address
@@ -135,6 +143,12 @@ void remove(collection c)
      prev = temp;
      temp = get_next(temp);
  }
+ //if the old marble not present in the linked list
+ if (temp == NULL)
+ {
+     return;
+ }
+ 
  
  //Unlink the node from the linked list
 
